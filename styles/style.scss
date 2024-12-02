@@ -1,0 +1,52 @@
+@import "resetstyle";
+@import "variables";
+@import "mixins";
+@import "placeholders";
+
+button {
+    @extend %customButton;
+}
+
+.posts {
+    width: min(90%, 1000px);
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    // .posts--heading
+    &--heading {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    &--item {
+        @include card(300px, 180px);
+
+        // .posts--item__medium
+        &__medium {
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 10px;
+
+            &:hover {
+               font-size: 20px;
+            }
+        } 
+
+        &__small {
+            font-size: 13px;
+            color: grey;
+            margin-bottom: 10px;
+        }
+
+        @media only screen and (max-width: 700px) {
+            p {
+                width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+    }
+}
